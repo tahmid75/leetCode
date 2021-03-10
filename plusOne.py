@@ -9,18 +9,28 @@ You may assume the integer does not contain any leading zero, except the number 
 '''
 
 
-digits = [4,3,2,1]
-carry = True
+class Solution(object):
+    def plusOne(self, digits):
+        """
+        :type digits: List[int]
+        :rtype: List[int]
+        """
+        carry = True
 
-for i in range(len(digits)-1, -1, -1):
+        for i in range(len(digits) - 1, -1, -1):
 
-    if(digits[i] == 9 and carry == True ):
-        digits[i] = 0
-        if(i==0):
-            digits.insert(0, 1)
-    elif(carry == True):
-        digits[i] = digits[i]+1
-        carry = False
+            if (digits[i] == 9 and carry == True):
+                digits[i] = 0
+                if (i == 0):
+                    digits.insert(0, 1)
+            elif (carry == True):
+                digits[i] = digits[i] + 1
+                carry = False
 
-print(digits)
+        return digits
 
+
+digits = [1,2,3,4,5]
+
+solution = Solution()
+print(solution.plusOne(digits))
